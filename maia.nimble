@@ -2,7 +2,7 @@
 
 version       = "0.1.0"
 author        = "jigordev"
-description   = "A lightweight and efficient web framework for the Nim programming language."
+description   = "A lightweight and efficient asynchronous web framework for the Nim programming language."
 license       = "MIT"
 srcDir        = "src"
 
