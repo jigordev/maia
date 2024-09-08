@@ -18,7 +18,10 @@ proc check*(f: Filter, req: Request): bool =
 
 proc custom*(f: Filter, validator: Validator): Filter =
     result = f
-    result.validator = proc(req: Request): bool = validator(req)
+    result.validator = proc(req: Request): bool = 
+        if validator(req):
+            return f.validator(req)
+        false
 
 proc urlContains*(f: Filter, substring: string): Filter =
     f.custom(proc(req: Request): bool = substring in $req.uri)
